@@ -1,0 +1,40 @@
+meta {
+  name: Get Spot Asset Tags
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/sapi/v1/spot/asset/tags
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~tag: Layer1_Layer2,BSC
+}
+
+tests {
+  test('status is 200', function () {
+    expect(res.getStatus()).to.equal(200);
+  });
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Get Spot Asset Tags
+
+  GET /sapi/v1/spot/asset/tags (MARKET_DATA — requires apiKey, no signature)
+
+  Query parameters:
+  - tag (optional) — one tag or multiple comma-separated tags with OR semantics;
+    omit it to return all eligible spot assets.
+
+  The response includes assetCode, assetName, trading, and tags for each asset.
+
+  Reference: https://developers.binance.com/en/docs/catalog/core-trading-wallet/api/rest-api/asset#get-spot-asset-tags
+}

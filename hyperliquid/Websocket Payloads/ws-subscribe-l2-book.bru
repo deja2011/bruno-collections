@@ -1,0 +1,37 @@
+meta {
+  name: WS Subscribe L2 Book
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "method": "subscribe",
+    "subscription": {
+      "type": "l2Book",
+      "coin": "BTC",
+      "nSigFigs": 5
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  WS Subscribe L2 Book
+
+  POST /info (public Info request)
+
+  Example WebSocket subscription payload for L2 book.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

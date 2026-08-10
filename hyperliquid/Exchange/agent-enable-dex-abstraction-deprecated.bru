@@ -1,0 +1,40 @@
+meta {
+  name: Agent Enable DEX Abstraction Deprecated
+  type: http
+  seq: 27
+}
+
+post {
+  url: {{baseUrl}}/exchange
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "action": {
+      "type": "agentEnableDexAbstraction"
+    },
+    "nonce": 1713825891591,
+    "signature": {
+      "r": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "s": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "v": 27
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Agent Enable DEX Abstraction Deprecated
+
+  POST /exchange (signed action template)
+
+  Deprecated. Prefer agentSetAbstraction.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
+}

@@ -1,0 +1,33 @@
+meta {
+  name: User Abstraction
+  type: http
+  seq: 25
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "userAbstraction",
+    "user": "0x0000000000000000000000000000000000000000"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  User Abstraction
+
+  POST /info (public Info request)
+
+  Query a user's abstraction state.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

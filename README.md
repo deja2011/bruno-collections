@@ -12,12 +12,13 @@ cd <collection> && bru run -r . --env production
 
 | Collection | API | Requests | Auth |
 | --- | --- | --- | --- |
-| [`binance-spot`](binance-spot) | Binance Spot (`api.binance.com`) | 19 | public; `apiKey` for MARKET_DATA endpoints |
+| [`binance-spot`](binance-spot) | Binance Spot and Wallet (`api.binance.com`) | 21 | public; `apiKey` for MARKET_DATA; HMAC for selected USER_DATA |
 | [`binance-usds-futures`](binance-usds-futures) | Binance USDⓈ-M Futures (`fapi.binance.com`) | 34 | public; `apiKey` for MARKET_DATA endpoints |
 | [`binance-coin-futures`](binance-coin-futures) | Binance COIN-M Futures (`dapi.binance.com`) | 26 | public; `apiKey` for MARKET_DATA endpoints |
 | [`binance-options`](binance-options) | Binance European Options (`eapi.binance.com`) | 12 | public |
 | [`aster-spot`](aster-spot) | Aster spot wallet (`asterdex.com`) | 3 | public |
 | [`coinbase-exchange`](coinbase-exchange) | Coinbase Exchange (`api.exchange.coinbase.com`) | 87 | HMAC-signed (collection pre-request script) |
+| [`hyperliquid`](hyperliquid) | Hyperliquid (`api.hyperliquid.xyz`) | 89 | public Info requests; signed Exchange templates |
 
 Credentials are never committed: environment files declare secrets via
 `vars:secret`, and Bruno stores their values outside the collection.
@@ -54,3 +55,12 @@ must be re-applied on any regeneration:
 - Options contract symbols expire and need periodic refresh.
 - Invalid values on COIN-M statistics endpoints return a WAF `403`, not a JSON
   error — so bad parameters look like auth failures.
+
+## Regenerating the Hyperliquid collection
+
+The native Bruno collection is converted from the OpenCollection/YAML source in
+the sibling `hyperliquid-bruno` directory:
+
+```sh
+python3 scripts/import-hyperliquid.py ../hyperliquid-bruno hyperliquid
+```

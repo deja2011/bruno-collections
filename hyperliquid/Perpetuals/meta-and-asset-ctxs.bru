@@ -1,0 +1,32 @@
+meta {
+  name: Meta And Asset Ctxs
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "metaAndAssetCtxs"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Meta And Asset Ctxs
+
+  POST /info (public Info request)
+
+  Retrieve perpetuals metadata and asset contexts.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

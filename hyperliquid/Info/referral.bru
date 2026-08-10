@@ -1,0 +1,33 @@
+meta {
+  name: Referral
+  type: http
+  seq: 18
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "referral",
+    "user": "0x0000000000000000000000000000000000000000"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Referral
+
+  POST /info (public Info request)
+
+  Query referral and reward information.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

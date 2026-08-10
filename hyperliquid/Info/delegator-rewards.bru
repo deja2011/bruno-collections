@@ -1,0 +1,33 @@
+meta {
+  name: Delegator Rewards
+  type: http
+  seq: 23
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "delegatorRewards",
+    "user": "0x0000000000000000000000000000000000000000"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Delegator Rewards
+
+  POST /info (public Info request)
+
+  Query staking rewards.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

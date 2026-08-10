@@ -1,0 +1,38 @@
+meta {
+  name: Candle Snapshot
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "candleSnapshot",
+    "req": {
+      "coin": "BTC",
+      "interval": "15m",
+      "startTime": 1700000000000,
+      "endTime": 1700086400000
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Candle Snapshot
+
+  POST /info (public Info request)
+
+  Retrieve recent candle snapshots. Supported intervals include 1m through 1M.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

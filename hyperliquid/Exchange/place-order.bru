@@ -1,0 +1,56 @@
+meta {
+  name: Place Order
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/exchange
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "action": {
+      "type": "order",
+      "orders": [
+        {
+          "a": 0,
+          "b": true,
+          "p": "50000",
+          "s": "0.001",
+          "r": false,
+          "t": {
+            "limit": {
+              "tif": "Gtc"
+            }
+          },
+          "c": "0x1234567890abcdef1234567890abcdef"
+        }
+      ],
+      "grouping": "na"
+    },
+    "nonce": 1713825891591,
+    "signature": {
+      "r": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "s": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "v": 27
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Place Order
+
+  POST /exchange (signed action template)
+
+  Place one or more limit or trigger orders. Replace the example signature with a real EIP-712 signature.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
+}

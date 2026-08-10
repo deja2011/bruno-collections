@@ -1,0 +1,41 @@
+meta {
+  name: Agent Set Abstraction
+  type: http
+  seq: 29
+}
+
+post {
+  url: {{baseUrl}}/exchange
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "action": {
+      "type": "agentSetAbstraction",
+      "abstraction": "u"
+    },
+    "nonce": 1713825891591,
+    "signature": {
+      "r": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "s": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "v": 27
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Agent Set Abstraction
+
+  POST /exchange (signed action template)
+
+  Set abstraction via agent. Values: i disabled, u unifiedAccount, p portfolioMargin.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
+}

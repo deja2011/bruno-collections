@@ -1,0 +1,32 @@
+meta {
+  name: Meta
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "meta"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Meta
+
+  POST /info (public Info request)
+
+  Retrieve perpetuals metadata for the first perp DEX. Optional field: dex.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

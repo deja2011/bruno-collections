@@ -18,11 +18,12 @@ script:pre-request {
 }
 
 docs {
-  # Binance Spot REST API — public endpoints
+  # Binance Spot and Wallet REST APIs
 
   A Bruno collection covering the public (unauthenticated) REST endpoints in
-  **General**, **Market**, generated from the official Binance Postman collection
-  (binance/binance-api-postman).
+  **General**, **Market**, plus selected authenticated **Wallet** endpoints.
+  The General and Market requests were generated from the official Binance
+  Postman collection (binance/binance-api-postman).
 
   ## Setup
 
@@ -30,7 +31,9 @@ docs {
   2. No credentials are needed for public endpoints. Endpoints marked
      MARKET_DATA additionally require an API key: set the `apiKey` secret
      environment variable and the collection pre-request script sends it as
-     the X-MBX-APIKEY header automatically. No endpoint here needs signing.
+     the X-MBX-APIKEY header automatically.
+  3. Signed Wallet endpoints also require `apiSecret`. Their request-level
+     pre-request scripts generate a fresh timestamp and signature automatically.
 
   Base URLs:
   - production: https://api.binance.com
@@ -40,5 +43,6 @@ docs {
   References:
   - https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-endpoints
   - https://developers.binance.com/docs/binance-spot-api-docs/rest-api/market-data-endpoints
+  - https://developers.binance.com/en/docs/catalog/core-trading-wallet/api/rest-api
   Changelog: https://developers.binance.com/en/docs/products/spot/CHANGELOG
 }

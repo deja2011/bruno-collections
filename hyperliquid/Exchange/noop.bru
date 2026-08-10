@@ -1,0 +1,40 @@
+meta {
+  name: Noop
+  type: http
+  seq: 25
+}
+
+post {
+  url: {{baseUrl}}/exchange
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "action": {
+      "type": "noop"
+    },
+    "nonce": 1713825891591,
+    "signature": {
+      "r": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "s": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "v": 27
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Noop
+
+  POST /exchange (signed action template)
+
+  Invalidate a pending nonce without otherwise changing state.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
+}

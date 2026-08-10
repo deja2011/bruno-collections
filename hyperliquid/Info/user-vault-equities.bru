@@ -1,0 +1,33 @@
+meta {
+  name: User Vault Equities
+  type: http
+  seq: 15
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "userVaultEquities",
+    "user": "0x0000000000000000000000000000000000000000"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  User Vault Equities
+
+  POST /info (public Info request)
+
+  Retrieve a user's vault deposits.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

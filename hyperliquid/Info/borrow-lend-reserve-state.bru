@@ -1,0 +1,33 @@
+meta {
+  name: Borrow Lend Reserve State
+  type: http
+  seq: 28
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "borrowLendReserveState",
+    "token": 0
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Borrow Lend Reserve State
+
+  POST /info (public Info request)
+
+  Query borrow/lend reserve state by token index.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

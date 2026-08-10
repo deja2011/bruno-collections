@@ -1,0 +1,32 @@
+meta {
+  name: Outcome Meta
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "outcomeMeta"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Outcome Meta
+
+  POST /info (public Info request)
+
+  Retrieve outcome metadata. Testnet-only in the official docs.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

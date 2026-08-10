@@ -1,0 +1,57 @@
+meta {
+  name: Modify Multiple Orders
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/exchange
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "action": {
+      "type": "batchModify",
+      "modifies": [
+        {
+          "oid": 123456,
+          "order": {
+            "a": 0,
+            "b": true,
+            "p": "49000",
+            "s": "0.001",
+            "r": false,
+            "t": {
+              "limit": {
+                "tif": "Gtc"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "nonce": 1713825891591,
+    "signature": {
+      "r": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "s": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "v": 27
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Modify Multiple Orders
+
+  POST /exchange (signed action template)
+
+  Modify multiple orders in one action.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
+}

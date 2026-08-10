@@ -1,0 +1,32 @@
+meta {
+  name: Spot Meta
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "spotMeta"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Spot Meta
+
+  POST /info (public Info request)
+
+  Retrieve spot metadata.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

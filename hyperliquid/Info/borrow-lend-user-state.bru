@@ -1,0 +1,33 @@
+meta {
+  name: Borrow Lend User State
+  type: http
+  seq: 27
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "borrowLendUserState",
+    "user": "0x0000000000000000000000000000000000000000"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Borrow Lend User State
+
+  POST /info (public Info request)
+
+  Query borrow/lend user state.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

@@ -1,0 +1,36 @@
+meta {
+  name: WS Subscribe User Events
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "method": "subscribe",
+    "subscription": {
+      "type": "userEvents",
+      "user": "0x0000000000000000000000000000000000000000"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  WS Subscribe User Events
+
+  POST /info (public Info request)
+
+  Example WebSocket subscription payload for user events.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

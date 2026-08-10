@@ -1,0 +1,33 @@
+meta {
+  name: Clearinghouse State
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "clearinghouseState",
+    "user": "0x0000000000000000000000000000000000000000"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Clearinghouse State
+
+  POST /info (public Info request)
+
+  Retrieve a user's perpetuals account summary.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

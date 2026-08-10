@@ -1,0 +1,35 @@
+meta {
+  name: Funding History
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "fundingHistory",
+    "coin": "BTC",
+    "startTime": 1700000000000,
+    "endTime": 1700086400000
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Funding History
+
+  POST /info (public Info request)
+
+  Retrieve historical funding rates.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

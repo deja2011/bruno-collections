@@ -1,0 +1,43 @@
+meta {
+  name: Update Leverage
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/exchange
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "action": {
+      "type": "updateLeverage",
+      "asset": 0,
+      "isCross": true,
+      "leverage": 10
+    },
+    "nonce": 1713825891591,
+    "signature": {
+      "r": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "s": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "v": 27
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Update Leverage
+
+  POST /exchange (signed action template)
+
+  Update cross or isolated leverage for an asset.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
+}

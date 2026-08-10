@@ -1,0 +1,35 @@
+meta {
+  name: WS Subscribe All Mids
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "method": "subscribe",
+    "subscription": {
+      "type": "allMids"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  WS Subscribe All Mids
+
+  POST /info (public Info request)
+
+  Example WebSocket subscription payload for all mids.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

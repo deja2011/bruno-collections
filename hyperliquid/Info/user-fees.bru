@@ -1,0 +1,33 @@
+meta {
+  name: User Fees
+  type: http
+  seq: 19
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "userFees",
+    "user": "0x0000000000000000000000000000000000000000"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  User Fees
+
+  POST /info (public Info request)
+
+  Query fee schedule, user rates, and discounts.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

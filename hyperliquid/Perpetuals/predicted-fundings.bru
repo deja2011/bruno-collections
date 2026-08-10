@@ -1,0 +1,32 @@
+meta {
+  name: Predicted Fundings
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "predictedFundings"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Predicted Fundings
+
+  POST /info (public Info request)
+
+  Retrieve predicted funding rates for different venues.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

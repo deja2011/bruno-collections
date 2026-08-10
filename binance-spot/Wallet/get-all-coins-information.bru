@@ -1,0 +1,66 @@
+meta {
+  name: Get All Coins Information
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/sapi/v1/capital/config/getall?recvWindow=5000&timestamp={{timestamp}}&signature={{signature}}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  recvWindow: 5000
+  timestamp: {{timestamp}}
+  signature: {{signature}}
+}
+
+script:pre-request {
+  const CryptoJS = require('crypto-js');
+  const apiSecret = bru.getEnvVar('apiSecret');
+  const baseUrl = bru.getEnvVar('baseUrl');
+
+  if (!apiSecret) {
+    throw new Error('Set the apiSecret secret in the active environment before sending this request.');
+  }
+
+  // Keep this order identical to the request URL. Binance signs the exact
+  // query string, excluding the signature parameter itself.
+  const recvWindow = '5000';
+  const timestamp = Date.now().toString();
+  const queryString = `recvWindow=${recvWindow}&timestamp=${timestamp}`;
+  const signature = CryptoJS.HmacSHA256(queryString, apiSecret).toString(CryptoJS.enc.Hex);
+
+  bru.setVar('timestamp', timestamp);
+  bru.setVar('signature', signature);
+  req.setUrl(`${baseUrl}/sapi/v1/capital/config/getall?${queryString}&signature=${signature}`);
+}
+
+tests {
+  test('status is 200', function () {
+    expect(res.getStatus()).to.equal(200);
+  });
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Get All Coins Information
+
+  GET /sapi/v1/capital/config/getall (USER_DATA — requires apiKey and HMAC-SHA256 signature)
+
+  Query parameters:
+  - recvWindow (optional, set to 5000; maximum 60000)
+  - timestamp (generated immediately before each request)
+  - signature (lowercase hexadecimal HMAC-SHA256 of the ordered query string)
+
+  The response includes each coin's networkList, including network, name,
+  depositEnable, withdrawEnable, isDefault, contractAddress, and
+  contractAddressUrl.
+
+  Reference: https://developers.binance.com/en/docs/catalog/core-trading-wallet/api/rest-api/capital#all-coins-information
+}

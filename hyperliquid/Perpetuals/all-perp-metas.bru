@@ -1,0 +1,32 @@
+meta {
+  name: All Perp Metas
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "allPerpMetas"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  All Perp Metas
+
+  POST /info (public Info request)
+
+  Retrieve all perpetuals metadata.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

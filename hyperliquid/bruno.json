@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "hyperliquid",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

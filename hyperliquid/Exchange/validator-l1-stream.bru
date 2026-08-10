@@ -1,0 +1,41 @@
+meta {
+  name: Validator L1 Stream
+  type: http
+  seq: 30
+}
+
+post {
+  url: {{baseUrl}}/exchange
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "action": {
+      "type": "validatorL1Stream",
+      "riskFreeRate": "0.04"
+    },
+    "nonce": 1713825891591,
+    "signature": {
+      "r": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "s": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "v": 27
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Validator L1 Stream
+
+  POST /exchange (signed action template)
+
+  Validator vote on risk-free rate for aligned quote asset.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
+}

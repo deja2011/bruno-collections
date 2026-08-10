@@ -1,0 +1,33 @@
+meta {
+  name: User Role
+  type: http
+  seq: 16
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "userRole",
+    "user": "0x0000000000000000000000000000000000000000"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  User Role
+
+  POST /info (public Info request)
+
+  Query whether an address is missing, user, agent, vault, or sub-account.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

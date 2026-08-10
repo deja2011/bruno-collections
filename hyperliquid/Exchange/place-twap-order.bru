@@ -1,0 +1,48 @@
+meta {
+  name: Place TWAP Order
+  type: http
+  seq: 22
+}
+
+post {
+  url: {{baseUrl}}/exchange
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "action": {
+      "type": "twapOrder",
+      "twap": {
+        "a": 0,
+        "b": true,
+        "s": "0.01",
+        "r": false,
+        "m": 10,
+        "t": false
+      }
+    },
+    "nonce": 1713825891591,
+    "signature": {
+      "r": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "s": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "v": 27
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Place TWAP Order
+
+  POST /exchange (signed action template)
+
+  Place a TWAP order. m is duration in minutes and t controls randomization.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
+}

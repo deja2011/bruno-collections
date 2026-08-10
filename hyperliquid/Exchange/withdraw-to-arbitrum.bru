@@ -1,0 +1,45 @@
+meta {
+  name: Withdraw To Arbitrum
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/exchange
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "action": {
+      "type": "withdraw3",
+      "hyperliquidChain": "Mainnet",
+      "signatureChainId": "0xa4b1",
+      "amount": "1",
+      "time": 1713825891591,
+      "destination": "0x0000000000000000000000000000000000000000"
+    },
+    "nonce": 1713825891591,
+    "signature": {
+      "r": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "s": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "v": 27
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Withdraw To Arbitrum
+
+  POST /exchange (signed action template)
+
+  Initiate a withdrawal request. Withdrawals have protocol fees and finalization delay.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
+}

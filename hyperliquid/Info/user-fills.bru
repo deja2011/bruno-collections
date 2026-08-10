@@ -1,0 +1,34 @@
+meta {
+  name: User Fills
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "userFills",
+    "user": "0x0000000000000000000000000000000000000000",
+    "aggregateByTime": false
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  User Fills
+
+  POST /info (public Info request)
+
+  Retrieve up to 2000 most recent user fills.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

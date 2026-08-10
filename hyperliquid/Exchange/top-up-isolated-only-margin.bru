@@ -1,0 +1,42 @@
+meta {
+  name: Top Up Isolated Only Margin
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/exchange
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "action": {
+      "type": "topUpIsolatedOnlyMargin",
+      "asset": 0,
+      "amount": "10.0"
+    },
+    "nonce": 1713825891591,
+    "signature": {
+      "r": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "s": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "v": 27
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Top Up Isolated Only Margin
+
+  POST /exchange (signed action template)
+
+  Top up isolated-only margin where supported.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/exchange-endpoint
+}

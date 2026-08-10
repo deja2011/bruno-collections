@@ -1,0 +1,33 @@
+meta {
+  name: User TWAP Slice Fills
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "userTwapSliceFills",
+    "user": "0x0000000000000000000000000000000000000000"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  User TWAP Slice Fills
+
+  POST /info (public Info request)
+
+  Retrieve at most 2000 most recent TWAP slice fills.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}

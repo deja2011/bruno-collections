@@ -1,0 +1,33 @@
+meta {
+  name: Perp DEX Limits
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/info
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "perpDexLimits",
+    "dex": "xyz"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Perp DEX Limits
+
+  POST /info (public Info request)
+
+  Retrieve builder-deployed perp market limits. The empty dex string is not allowed.
+
+  Reference: https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint
+}
