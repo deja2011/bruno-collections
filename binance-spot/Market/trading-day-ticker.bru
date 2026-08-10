@@ -1,0 +1,38 @@
+meta {
+  name: Trading Day Ticker
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{baseUrl}}/api/v3/ticker/tradingDay?symbol=BNBUSDT
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BNBUSDT
+  ~symbols: ["BTCUSDT","BNBUSDT"]
+  ~timeZone: 0
+  ~type: FULL
+  ~symbolStatus: TRADING
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Trading Day Ticker
+
+  GET /api/v3/ticker/tradingDay (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BNBUSDT) — Either `symbol` or `symbols` must be provided.
+  - symbols (optional, example: ["BTCUSDT","BNBUSDT"]) — Either `symbol` or `symbols` must be provided. Examples of accepted format for the `symbols` parameter: ["BTCUSDT","BNBUSDT"] or %5B%22BTCUSDT%22,%22BNBUSDT%22%5D. The maximum number of `symbols` allowed in a request is 100.
+  - timeZone (optional, example: 0) — Default: 0 (UTC)
+  - type (optional, example: FULL)
+  - symbolStatus (optional, example: TRADING) — Filters for symbols that have this `tradingStatus`. For a single symbol, a status mismatch returns error `-1220 SYMBOL_DOES_NOT_MATCH_STATUS`. For multiple symbols, non-matching ones are simply excluded from the response.
+
+  Reference: https://developers.binance.com/docs/binance-spot-api-docs/rest-api/market-data-endpoints
+}

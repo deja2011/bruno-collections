@@ -1,0 +1,23 @@
+meta {
+  name: Get fees
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/fees
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get fees
+
+  GET /fees (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

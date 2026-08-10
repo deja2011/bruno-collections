@@ -1,0 +1,28 @@
+meta {
+  name: Get loan preview XM
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{baseUrl}}/loans/loan-preview-xm?currency=BTC&native_amount=100
+  body: none
+  auth: inherit
+}
+
+params:query {
+  currency: BTC
+  native_amount: 100
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get loan preview XM
+
+  GET /loans/loan-preview-xm (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

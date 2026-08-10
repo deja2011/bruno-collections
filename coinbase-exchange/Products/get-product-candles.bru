@@ -1,0 +1,33 @@
+meta {
+  name: Get product candles
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/products/:product_id/candles
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~granularity: 
+  ~start: 
+  ~end: 
+}
+
+params:path {
+  product_id: BTC-USD
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get product candles
+
+  GET /products/{product_id}/candles (public — no authentication required)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

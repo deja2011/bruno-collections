@@ -1,0 +1,27 @@
+meta {
+  name: Get all known trading pairs
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/products
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~type: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all known trading pairs
+
+  GET /products (public — no authentication required)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Open Interest
+  type: http
+  seq: 18
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/openInterest?symbol=BTCUSDT
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSDT
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Open Interest
+
+  GET /fapi/v1/openInterest (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSDT)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

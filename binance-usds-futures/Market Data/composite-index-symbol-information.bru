@@ -1,0 +1,30 @@
+meta {
+  name: Composite Index Symbol Information
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/indexInfo
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~symbol: DEFIUSDT
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Composite Index Symbol Information
+
+  GET /fapi/v1/indexInfo (public — no API key required)
+
+  Query parameters:
+  - symbol (optional, example: DEFIUSDT)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

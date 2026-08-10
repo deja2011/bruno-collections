@@ -1,0 +1,30 @@
+meta {
+  name: Mark Price
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/premiumIndex
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~symbol: BTCUSDT
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Mark Price
+
+  GET /fapi/v1/premiumIndex (public — no API key required)
+
+  Query parameters:
+  - symbol (optional, example: BTCUSDT)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

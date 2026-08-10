@@ -1,0 +1,35 @@
+meta {
+  name: Create a new order
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/orders
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "limit",
+    "side": "buy",
+    "product_id": "BTC-USD",
+    "price": "10000.00",
+    "size": "0.001",
+    "time_in_force": "GTC",
+    "post_only": false
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Create a new order
+
+  POST /orders (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

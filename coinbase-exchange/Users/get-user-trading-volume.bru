@@ -1,0 +1,27 @@
+meta {
+  name: Get user trading volume
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/users/:user_id/trading-volumes
+  body: none
+  auth: inherit
+}
+
+params:path {
+  user_id: self
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get user trading volume
+
+  GET /users/{user_id}/trading-volumes (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

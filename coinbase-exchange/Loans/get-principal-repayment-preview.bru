@@ -1,0 +1,29 @@
+meta {
+  name: Get principal repayment preview
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{baseUrl}}/loans/repayment-preview
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~loan_id: 
+  ~currency: BTC
+  ~native_amount: 100
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get principal repayment preview
+
+  GET /loans/repayment-preview (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

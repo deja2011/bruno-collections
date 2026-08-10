@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "binance-options",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

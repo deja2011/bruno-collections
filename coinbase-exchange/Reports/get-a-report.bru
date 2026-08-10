@@ -1,0 +1,27 @@
+meta {
+  name: Get a report
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/reports/:report_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  report_id: REPORT_ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get a report
+
+  GET /reports/{report_id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

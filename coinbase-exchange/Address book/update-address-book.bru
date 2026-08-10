@@ -1,0 +1,34 @@
+meta {
+  name: Update address book
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/address-book/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: ID
+}
+
+body:json {
+  {
+    "label": "my wallet",
+    "network": "ethereum"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Update address book
+
+  PUT /address-book/{id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

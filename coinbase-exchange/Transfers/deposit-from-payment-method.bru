@@ -1,0 +1,31 @@
+meta {
+  name: Deposit from payment method
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/deposits/payment-method
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "amount": "10.00",
+    "payment_method_id": "",
+    "currency": "USD"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Deposit from payment method
+
+  POST /deposits/payment-method (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

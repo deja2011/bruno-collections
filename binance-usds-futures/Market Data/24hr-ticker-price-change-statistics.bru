@@ -1,0 +1,30 @@
+meta {
+  name: 24hr Ticker Price Change Statistics
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/ticker/24hr
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~symbol: BTCUSDT
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  24hr Ticker Price Change Statistics
+
+  GET /fapi/v1/ticker/24hr (public — no API key required)
+
+  Query parameters:
+  - symbol (optional, example: BTCUSDT)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

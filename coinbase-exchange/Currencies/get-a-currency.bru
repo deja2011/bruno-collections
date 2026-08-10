@@ -1,0 +1,27 @@
+meta {
+  name: Get a currency
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/currencies/:currency_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  currency_id: BTC
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get a currency
+
+  GET /currencies/{currency_id} (public — no authentication required)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

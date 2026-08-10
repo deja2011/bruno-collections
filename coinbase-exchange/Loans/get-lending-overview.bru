@@ -1,0 +1,23 @@
+meta {
+  name: Get lending overview
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/loans/lending-overview
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get lending overview
+
+  GET /loans/lending-overview (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

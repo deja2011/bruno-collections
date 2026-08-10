@@ -1,0 +1,30 @@
+meta {
+  name: Quarterly Contract Settlement Price
+  type: http
+  seq: 22
+}
+
+get {
+  url: {{baseUrl}}/futures/data/delivery-price?pair=BTCUSDT
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pair: BTCUSDT
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Quarterly Contract Settlement Price
+
+  GET /futures/data/delivery-price (public — no API key required)
+
+  Query parameters:
+  - pair (example: BTCUSDT)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

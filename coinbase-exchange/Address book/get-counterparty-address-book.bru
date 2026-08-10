@@ -1,0 +1,23 @@
+meta {
+  name: Get counterparty address book
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/address-book/counterparty
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get counterparty address book
+
+  GET /address-book/counterparty (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Get all product volume
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/products/volume-summary
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all product volume
+
+  GET /products/volume-summary (public — no authentication required)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

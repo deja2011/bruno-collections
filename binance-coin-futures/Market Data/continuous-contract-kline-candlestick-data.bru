@@ -1,0 +1,40 @@
+meta {
+  name: Continuous Contract Kline/Candlestick Data
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/dapi/v1/continuousKlines?pair=BTCUSD&contractType=PERPETUAL&interval=1m
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pair: BTCUSD
+  contractType: PERPETUAL
+  interval: 1m
+  ~startTime: 1623319461670
+  ~endTime: 1641782889000
+  ~limit: 30
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Continuous Contract Kline/Candlestick Data
+
+  GET /dapi/v1/continuousKlines (public — no API key required)
+
+  Query parameters:
+  - pair (example: BTCUSD) — After CM migration, accepts both CM and UM pair values.
+  - contractType (example: PERPETUAL)
+  - interval (example: 1m) — Interval
+  - startTime (optional, example: 1623319461670) — Start time
+  - endTime (optional, example: 1641782889000) — End time
+  - limit (optional, example: 30) — Maximum number of records to return.
+
+  Reference: https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data
+}

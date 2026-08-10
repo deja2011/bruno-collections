@@ -1,0 +1,34 @@
+meta {
+  name: Deposit assets
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/bapi/futures/v1/public/future/aster/deposit/assets?chainIds=56&networks=EVM&accountType=spot
+  body: none
+  auth: inherit
+}
+
+params:query {
+  chainIds: 56
+  networks: EVM
+  accountType: spot
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Deposit assets
+
+  GET /bapi/futures/v1/public/future/aster/deposit/assets (public — no credentials required)
+
+  Lists the assets that can be deposited, per chain and network.
+
+  Query parameters:
+  - chainIds (example: 56 — BNB Smart Chain)
+  - networks (example: EVM)
+  - accountType (example: spot)
+}

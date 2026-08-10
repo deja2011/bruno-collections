@@ -1,0 +1,34 @@
+meta {
+  name: Query Execution Rules
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/v3/executionRules
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~symbol: BAZUSD
+  ~symbols: ["BAZUSD","BNBUSDT"]
+  ~symbolStatus: TRADING
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Query Execution Rules
+
+  GET /api/v3/executionRules (public — no API key required)
+
+  Query parameters:
+  - symbol (optional, example: BAZUSD) — Query for specified symbol.
+  - symbols (optional, example: ["BAZUSD","BNBUSDT"]) — Query for multiple symbols.
+  - symbolStatus (optional, example: TRADING) — Query for all symbols with the specified status.
+
+  Reference: https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-endpoints
+}

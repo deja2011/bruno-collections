@@ -1,0 +1,36 @@
+meta {
+  name: Create a report
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/reports
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "type": "account",
+    "format": "pdf",
+    "email": "user1@example.com",
+    "account": {
+      "start_date": "2020-02-25T03:11:42.164Z",
+      "end_date": "2020-03-26T02:11:42.164Z",
+      "account_id": "ALL"
+    }
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Create a report
+
+  POST /reports (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

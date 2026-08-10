@@ -1,0 +1,38 @@
+meta {
+  name: Compressed/Aggregate Trades List
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/aggTrades?symbol=BTCUSDT
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSDT
+  ~fromId: 1
+  ~startTime: 1623319461670
+  ~endTime: 1641782889000
+  ~limit: 50
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Compressed/Aggregate Trades List
+
+  GET /fapi/v1/aggTrades (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSDT) — Symbol
+  - fromId (optional, example: 1) — ID to get aggregate trades from INCLUSIVE.
+  - startTime (optional, example: 1623319461670) — Timestamp in ms to get aggregate trades from INCLUSIVE.
+  - endTime (optional, example: 1641782889000) — Timestamp in ms to get aggregate trades until INCLUSIVE.
+  - limit (optional, example: 50)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

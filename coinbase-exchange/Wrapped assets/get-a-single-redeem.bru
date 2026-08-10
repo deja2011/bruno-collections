@@ -1,0 +1,27 @@
+meta {
+  name: Get a single redeem
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/wrapped-assets/redeem/:redeem_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  redeem_id: REDEEM_ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get a single redeem
+
+  GET /wrapped-assets/redeem/{redeem_id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

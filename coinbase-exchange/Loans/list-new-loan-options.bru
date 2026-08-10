@@ -1,0 +1,23 @@
+meta {
+  name: List new loan options
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/loans/options
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  List new loan options
+
+  GET /loans/options (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

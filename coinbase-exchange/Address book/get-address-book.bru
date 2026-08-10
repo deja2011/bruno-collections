@@ -1,0 +1,23 @@
+meta {
+  name: Get address book
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/address-book
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get address book
+
+  GET /address-book (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

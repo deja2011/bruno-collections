@@ -1,0 +1,27 @@
+meta {
+  name: Get a single transfer
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/transfers/:transfer_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  transfer_id: TRANSFER_ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get a single transfer
+
+  GET /transfers/{transfer_id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

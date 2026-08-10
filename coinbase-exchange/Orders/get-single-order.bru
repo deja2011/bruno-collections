@@ -1,0 +1,31 @@
+meta {
+  name: Get single order
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/orders/:order_id?market_type=spot
+  body: none
+  auth: inherit
+}
+
+params:query {
+  market_type: spot
+}
+
+params:path {
+  order_id: ORDER_ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get single order
+
+  GET /orders/{order_id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

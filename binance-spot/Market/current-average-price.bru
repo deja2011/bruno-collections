@@ -1,0 +1,30 @@
+meta {
+  name: Current average price
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/v3/avgPrice?symbol=BNBUSDT
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BNBUSDT
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Current average price
+
+  GET /api/v3/avgPrice (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BNBUSDT)
+
+  Reference: https://developers.binance.com/docs/binance-spot-api-docs/rest-api/market-data-endpoints
+}

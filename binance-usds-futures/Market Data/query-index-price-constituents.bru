@@ -1,0 +1,30 @@
+meta {
+  name: Query Index Price Constituents
+  type: http
+  seq: 23
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/constituents?symbol=BTCUSDT
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSDT
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Query Index Price Constituents
+
+  GET /fapi/v1/constituents (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSDT)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

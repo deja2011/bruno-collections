@@ -1,0 +1,23 @@
+meta {
+  name: List interest summaries
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/loans/interest
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  List interest summaries
+
+  GET /loans/interest (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

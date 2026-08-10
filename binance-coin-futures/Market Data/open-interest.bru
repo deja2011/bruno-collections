@@ -1,0 +1,30 @@
+meta {
+  name: Open Interest
+  type: http
+  seq: 15
+}
+
+get {
+  url: {{baseUrl}}/dapi/v1/openInterest?symbol=BTCUSD_PERP
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSD_PERP
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Open Interest
+
+  GET /dapi/v1/openInterest (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSD_PERP) — Symbol
+
+  Reference: https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data
+}

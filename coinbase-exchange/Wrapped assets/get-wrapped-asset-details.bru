@@ -1,0 +1,27 @@
+meta {
+  name: Get wrapped asset details
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/wrapped-assets/:wrapped_asset_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  wrapped_asset_id: CBETH
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get wrapped asset details
+
+  GET /wrapped-assets/{wrapped_asset_id} (public — no authentication required)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

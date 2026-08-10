@@ -1,0 +1,26 @@
+auth {
+  mode: none
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  # Aster spot REST API — public endpoints
+
+  A Bruno collection covering the public (unauthenticated) wallet endpoints of
+  the Aster spot API (`asterdex.com`).
+
+  ## Setup
+
+  1. Select an environment (see environments/).
+  2. No credentials are needed — every request here is fully public.
+
+  Base URL:
+  - production: https://www.asterdex.com
+
+  Note: these endpoints live under Aster's proprietary `/bapi/futures/v1/public/future/aster`
+  namespace and have no Binance counterpart, so this collection is kept separate
+  from the Binance collections rather than folded in as an environment.
+}

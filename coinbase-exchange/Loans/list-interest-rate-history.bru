@@ -1,0 +1,27 @@
+meta {
+  name: List interest rate history
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/loans/interest/history/:loan_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  loan_id: LOAN_ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  List interest rate history
+
+  GET /loans/interest/history/{loan_id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

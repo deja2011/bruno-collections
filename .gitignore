@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+
+# Bruno local state — runner output and resolved secret values
+*.log
+results.json

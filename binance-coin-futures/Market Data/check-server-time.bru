@@ -1,0 +1,23 @@
+meta {
+  name: Check Server time
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/dapi/v1/time
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Check Server time
+
+  GET /dapi/v1/time (public — no API key required)
+
+  Reference: https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data
+}

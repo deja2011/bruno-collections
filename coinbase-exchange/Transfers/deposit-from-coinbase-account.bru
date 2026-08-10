@@ -1,0 +1,31 @@
+meta {
+  name: Deposit from Coinbase account
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/deposits/coinbase-account
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "coinbase_account_id": "",
+    "amount": "10.00",
+    "currency": "BTC"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Deposit from Coinbase account
+
+  POST /deposits/coinbase-account (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Exchange Information
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/eapi/v1/exchangeInfo
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Exchange Information
+
+  GET /eapi/v1/exchangeInfo (public — no API key required)
+
+  Reference: https://developers.binance.com/docs/derivatives/option/market-data
+}

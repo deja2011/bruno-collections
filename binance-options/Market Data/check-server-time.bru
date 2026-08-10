@@ -1,0 +1,23 @@
+meta {
+  name: Check Server Time
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/eapi/v1/time
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Check Server Time
+
+  GET /eapi/v1/time (public — no API key required)
+
+  Reference: https://developers.binance.com/docs/derivatives/option/market-data
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Get all Coinbase wallets
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/coinbase-accounts
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all Coinbase wallets
+
+  GET /coinbase-accounts (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

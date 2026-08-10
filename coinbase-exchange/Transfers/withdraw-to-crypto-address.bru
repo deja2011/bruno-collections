@@ -1,0 +1,32 @@
+meta {
+  name: Withdraw to crypto address
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/withdrawals/crypto
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "amount": "0.01",
+    "currency": "BTC",
+    "crypto_address": "",
+    "add_network_fee_to_total": false
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Withdraw to crypto address
+
+  POST /withdrawals/crypto (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

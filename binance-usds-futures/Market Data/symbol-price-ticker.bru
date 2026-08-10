@@ -1,0 +1,30 @@
+meta {
+  name: Symbol Price Ticker
+  type: http
+  seq: 28
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/ticker/price
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~symbol: BTCUSDT
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Symbol Price Ticker
+
+  GET /fapi/v1/ticker/price (public — no API key required)
+
+  Query parameters:
+  - symbol (optional, example: BTCUSDT)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

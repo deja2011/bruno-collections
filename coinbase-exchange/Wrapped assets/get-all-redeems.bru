@@ -1,0 +1,32 @@
+meta {
+  name: Get all redeems
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/wrapped-assets/redeem
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~before: 
+  ~after: 
+  ~limit: 
+  ~from_currency: CBETH
+  ~to_currency: ETH
+  ~status: open
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all redeems
+
+  GET /wrapped-assets/redeem (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

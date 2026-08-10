@@ -1,0 +1,23 @@
+meta {
+  name: Get USDC conversion
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/margin/usdc
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get USDC conversion
+
+  GET /margin/usdc (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

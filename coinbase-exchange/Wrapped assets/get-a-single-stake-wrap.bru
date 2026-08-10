@@ -1,0 +1,27 @@
+meta {
+  name: Get a single stake-wrap
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/wrapped-assets/stake-wrap/:stake_wrap_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  stake_wrap_id: STAKE_WRAP_ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get a single stake-wrap
+
+  GET /wrapped-assets/stake-wrap/{stake_wrap_id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Test connectivity
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/v3/ping
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Test connectivity
+
+  GET /api/v3/ping (public — no API key required)
+
+  Reference: https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-endpoints
+}

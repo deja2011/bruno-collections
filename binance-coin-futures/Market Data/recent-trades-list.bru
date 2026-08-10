@@ -1,0 +1,32 @@
+meta {
+  name: Recent Trades List
+  type: http
+  seq: 20
+}
+
+get {
+  url: {{baseUrl}}/dapi/v1/trades?symbol=BTCUSD_PERP
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSD_PERP
+  ~limit: 30
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Recent Trades List
+
+  GET /dapi/v1/trades (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSD_PERP) — Symbol
+  - limit (optional, example: 30) — Maximum number of records to return.
+
+  Reference: https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data
+}

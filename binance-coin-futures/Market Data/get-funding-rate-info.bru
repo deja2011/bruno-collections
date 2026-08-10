@@ -1,0 +1,23 @@
+meta {
+  name: Get Funding Rate Info
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/dapi/v1/fundingInfo
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get Funding Rate Info
+
+  GET /dapi/v1/fundingInfo (public — no API key required)
+
+  Reference: https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data
+}

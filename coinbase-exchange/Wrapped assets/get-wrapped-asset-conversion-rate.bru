@@ -1,0 +1,27 @@
+meta {
+  name: Get wrapped asset conversion rate
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/wrapped-assets/:wrapped_asset_id/conversion-rate
+  body: none
+  auth: inherit
+}
+
+params:path {
+  wrapped_asset_id: CBETH
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get wrapped asset conversion rate
+
+  GET /wrapped-assets/{wrapped_asset_id}/conversion-rate (public — no authentication required)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

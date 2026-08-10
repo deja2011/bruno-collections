@@ -1,0 +1,32 @@
+meta {
+  name: Get all stake-wraps
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/wrapped-assets/stake-wrap
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~before: 
+  ~after: 
+  ~limit: 
+  ~from: ETH
+  ~to: CBETH
+  ~status: open
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all stake-wraps
+
+  GET /wrapped-assets/stake-wrap (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

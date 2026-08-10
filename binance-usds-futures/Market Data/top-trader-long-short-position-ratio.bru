@@ -1,0 +1,38 @@
+meta {
+  name: Top Trader Long/Short Position Ratio (MARKET_DATA)
+  type: http
+  seq: 33
+}
+
+get {
+  url: {{baseUrl}}/futures/data/topLongShortPositionRatio?symbol=BTCUSDT&period=5m
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSDT
+  period: 5m
+  ~limit: 50
+  ~startTime: 1623319461670
+  ~endTime: 1641782889000
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Top Trader Long/Short Position Ratio (MARKET_DATA)
+
+  GET /futures/data/topLongShortPositionRatio (security type MARKET_DATA — requires the X-MBX-APIKEY header (set the apiKey environment variable); no signature)
+
+  Query parameters:
+  - symbol (example: BTCUSDT)
+  - period (example: 5m)
+  - limit (optional, example: 50)
+  - startTime (optional, example: 1623319461670)
+  - endTime (optional, example: 1641782889000)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

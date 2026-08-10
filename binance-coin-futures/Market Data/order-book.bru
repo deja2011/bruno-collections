@@ -1,0 +1,32 @@
+meta {
+  name: Order Book
+  type: http
+  seq: 17
+}
+
+get {
+  url: {{baseUrl}}/dapi/v1/depth?symbol=BTCUSD_PERP
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSD_PERP
+  ~limit: 500
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Order Book
+
+  GET /dapi/v1/depth (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSD_PERP) — Symbol
+  - limit (optional, example: 500) — Valid limits:[5, 10, 20, 50, 100, 500, 1000].
+
+  Reference: https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Get auto loan setting
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/margin/auto-loan
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get auto loan setting
+
+  GET /margin/auto-loan (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

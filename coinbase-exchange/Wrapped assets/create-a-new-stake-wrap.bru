@@ -1,0 +1,31 @@
+meta {
+  name: Create a new stake-wrap
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/wrapped-assets/stake-wrap
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "from_currency": "ETH",
+    "to_currency": "CBETH",
+    "amount": "1.0"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Create a new stake-wrap
+
+  POST /wrapped-assets/stake-wrap (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

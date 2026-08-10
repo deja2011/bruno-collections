@@ -1,0 +1,32 @@
+meta {
+  name: Transfer funds between profiles
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/profiles/transfer
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "from": "e543fd44-cbcd-4144-a2d9-6d81f42e2093",
+    "to": "00921972-6b04-4daa-9458-3a38dd4924f6",
+    "amount": "12.345",
+    "currency": "BTC"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Transfer funds between profiles
+
+  POST /profiles/transfer (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

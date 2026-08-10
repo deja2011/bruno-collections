@@ -1,0 +1,39 @@
+meta {
+  name: Exchange information
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/v3/exchangeInfo?symbol=SPCXBUSDT
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: SPCXBUSDT
+  ~symbols: ["BTCUSDT","BNBBTC"]
+  ~permissions: SPOT
+  ~showPermissionSets: false
+  ~symbolStatus: TRADING
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Exchange information
+  
+  GET /api/v3/exchangeInfo (public — no API key required)
+  
+  Query parameters:
+  - symbol (optional, example: ETHBTC) — Example: curl -X GET "https://api.binance.com/api/v3/exchangeInfo?symbol=BNBBTC"
+  - symbols (optional, example: ["BTCUSDT","BNBBTC"]) — Examples: curl -X GET "https://api.binance.com/api/v3/exchangeInfo?symbols=%5B%22BNBBTC%22,%22BTCUSDT%22%5D" or curl -g -X GET 'https://api.binance.com/api/v3/exchangeInfo?symbols=["BTCUSDT","BNBBTC"]'
+  - permissions (optional, example: SPOT) — Examples: curl -X GET "https://api.binance.com/api/v3/exchangeInfo?permissions=SPOT" curl -X GET "https://api.binance.com/api/v3/exchangeInfo?permissions=%5B%22MARGIN%22%2C%22LEVERAGED%22%5D" or curl -g -X GET 'https://api.binance.com/api/v3/exchangeInfo?permissions=["MARGIN","LEVERAGED"]'
+  - showPermissionSets (optional, example: false) — Controls whether the content of the `permissionSets` field is populated or not.
+  - symbolStatus (optional, example: TRADING) — Filters for symbols that have this `tradingStatus`. Cannot be used in combination with `symbols` or `symbol`.
+  
+  Reference: https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-endpoints
+}

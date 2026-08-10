@@ -1,0 +1,34 @@
+meta {
+  name: Old Trades Lookup (MARKET_DATA)
+  type: http
+  seq: 17
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/historicalTrades?symbol=BTCUSDT
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSDT
+  ~limit: 50
+  ~fromId: 1
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Old Trades Lookup (MARKET_DATA)
+
+  GET /fapi/v1/historicalTrades (security type MARKET_DATA — requires the X-MBX-APIKEY header (set the apiKey environment variable); no signature)
+
+  Query parameters:
+  - symbol (example: BTCUSDT)
+  - limit (optional, example: 50)
+  - fromId (optional, example: 1) — TradeId to fetch from. Default gets most recent trades.
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

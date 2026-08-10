@@ -1,0 +1,33 @@
+meta {
+  name: Generate crypto address
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/coinbase-accounts/:account_id/addresses
+  body: json
+  auth: inherit
+}
+
+params:path {
+  account_id: ACCOUNT_ID
+}
+
+body:json {
+  {
+    "network": "ethereum"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Generate crypto address
+
+  POST /coinbase-accounts/{account_id}/addresses (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

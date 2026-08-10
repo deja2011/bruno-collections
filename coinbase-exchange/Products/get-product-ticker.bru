@@ -1,0 +1,27 @@
+meta {
+  name: Get product ticker
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/products/:product_id/ticker
+  body: none
+  auth: inherit
+}
+
+params:path {
+  product_id: BTC-USD
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get product ticker
+
+  GET /products/{product_id}/ticker (public — no authentication required)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

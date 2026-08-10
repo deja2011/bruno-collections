@@ -1,0 +1,34 @@
+meta {
+  name: Open new loan
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/loans/open
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "loan_id": "",
+    "currency": "USD",
+    "native_amount": "1000",
+    "interest_rate": "0.1",
+    "term_start_date": "2024-01-01",
+    "term_end_date": "2024-02-01"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Open new loan
+
+  POST /loans/open (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

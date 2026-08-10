@@ -1,0 +1,36 @@
+meta {
+  name: Get a single account's ledger
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/accounts/:account_id/ledger?limit=100
+  body: none
+  auth: inherit
+}
+
+params:query {
+  limit: 100
+  ~start_date: 
+  ~end_date: 
+  ~before: 
+  ~after: 
+  ~profile_id: 
+}
+
+params:path {
+  account_id: ACCOUNT_ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get a single account's ledger
+
+  GET /accounts/{account_id}/ledger (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

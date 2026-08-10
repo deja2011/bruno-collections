@@ -1,0 +1,32 @@
+meta {
+  name: 24hr Ticker Price Change Statistics
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/dapi/v1/ticker/24hr
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~symbol: BTCUSD_200925
+  ~pair: BTCUSD
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  24hr Ticker Price Change Statistics
+
+  GET /dapi/v1/ticker/24hr (public — no API key required)
+
+  Query parameters:
+  - symbol (optional, example: BTCUSD_200925) — Symbol
+  - pair (optional, example: BTCUSD) — Pair
+
+  Reference: https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data
+}

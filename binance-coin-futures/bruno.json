@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "binance-coin-futures",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

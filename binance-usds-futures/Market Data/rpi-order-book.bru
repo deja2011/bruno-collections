@@ -1,0 +1,32 @@
+meta {
+  name: RPI Order Book
+  type: http
+  seq: 26
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/rpiDepth?symbol=BTCUSDT
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSDT
+  ~limit: 1000
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  RPI Order Book
+
+  GET /fapi/v1/rpiDepth (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSDT)
+  - limit (optional, example: 1000) — Valid limits:[1000]
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

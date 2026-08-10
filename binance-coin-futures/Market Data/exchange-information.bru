@@ -1,0 +1,23 @@
+meta {
+  name: Exchange Information
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/dapi/v1/exchangeInfo
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Exchange Information
+
+  GET /dapi/v1/exchangeInfo (public — no API key required)
+
+  Reference: https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data
+}

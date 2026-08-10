@@ -1,0 +1,38 @@
+meta {
+  name: Compressed/Aggregate trades list
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/v3/aggTrades?symbol=BNBUSDT
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BNBUSDT
+  ~fromId: 1
+  ~startTime: 1735693200000
+  ~endTime: 1735693200000
+  ~limit: 1
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Compressed/Aggregate trades list
+
+  GET /api/v3/aggTrades (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BNBUSDT)
+  - fromId (optional, example: 1) — ID to get aggregate trades from INCLUSIVE.
+  - startTime (optional, example: 1735693200000) — Timestamp in ms to get aggregate trades from INCLUSIVE.
+  - endTime (optional, example: 1735693200000) — Timestamp in ms to get aggregate trades until INCLUSIVE.
+  - limit (optional, example: 1)
+
+  Reference: https://developers.binance.com/docs/binance-spot-api-docs/rest-api/market-data-endpoints
+}

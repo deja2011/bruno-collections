@@ -1,0 +1,28 @@
+meta {
+  name: Get new loan preview
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/loans/loan-preview
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~currency: BTC
+  ~native_amount: 100
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get new loan preview
+
+  GET /loans/loan-preview (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

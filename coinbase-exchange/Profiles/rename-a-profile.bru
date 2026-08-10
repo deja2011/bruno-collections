@@ -1,0 +1,33 @@
+meta {
+  name: Rename a profile
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/profiles/:profile_id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  profile_id: PROFILE_ID
+}
+
+body:json {
+  {
+    "name": "renamed-profile"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Rename a profile
+
+  PUT /profiles/{profile_id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Get product stats
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/products/:product_id/stats
+  body: none
+  auth: inherit
+}
+
+params:path {
+  product_id: BTC-USD
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get product stats
+
+  GET /products/{product_id}/stats (public — no authentication required)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

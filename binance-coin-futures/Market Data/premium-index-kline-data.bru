@@ -1,0 +1,38 @@
+meta {
+  name: Premium index Kline Data
+  type: http
+  seq: 18
+}
+
+get {
+  url: {{baseUrl}}/dapi/v1/premiumIndexKlines?symbol=BTCUSD_PERP&interval=1m
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSD_PERP
+  interval: 1m
+  ~startTime: 1623319461670
+  ~endTime: 1641782889000
+  ~limit: 30
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Premium index Kline Data
+
+  GET /dapi/v1/premiumIndexKlines (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSD_PERP) — After CM migration, accepts both CM and UM symbols.
+  - interval (example: 1m) — Interval
+  - startTime (optional, example: 1623319461670) — Start time
+  - endTime (optional, example: 1641782889000) — End time
+  - limit (optional, example: 30) — Maximum number of records to return.
+
+  Reference: https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data
+}

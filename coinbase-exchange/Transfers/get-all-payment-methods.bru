@@ -1,0 +1,23 @@
+meta {
+  name: Get all payment methods
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/payment-methods
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all payment methods
+
+  GET /payment-methods (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

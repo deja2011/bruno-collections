@@ -1,0 +1,36 @@
+meta {
+  name: Get Funding Rate History of Perpetual Futures
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/dapi/v1/fundingRate?symbol=BTCUSD_PERP
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSD_PERP
+  ~startTime: 1623319461670
+  ~endTime: 1641782889000
+  ~limit: 30
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get Funding Rate History of Perpetual Futures
+
+  GET /dapi/v1/fundingRate (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSD_PERP) — Symbol
+  - startTime (optional, example: 1623319461670) — Timestamp in ms to get funding rate from INCLUSIVE.
+  - endTime (optional, example: 1641782889000) — Timestamp in ms to get funding rate until INCLUSIVE.
+  - limit (optional, example: 30) — Maximum number of records to return.
+
+  Reference: https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data
+}

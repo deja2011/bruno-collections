@@ -1,0 +1,23 @@
+meta {
+  name: Trading Schedule
+  type: http
+  seq: 34
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/tradingSchedule
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Trading Schedule
+
+  GET /fapi/v1/tradingSchedule (public — no API key required)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

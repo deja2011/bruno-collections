@@ -1,0 +1,23 @@
+meta {
+  name: Get all known currencies
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/currencies
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all known currencies
+
+  GET /currencies (public — no authentication required)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

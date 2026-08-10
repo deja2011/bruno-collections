@@ -1,0 +1,31 @@
+meta {
+  name: Initiates the creation/processing of a redeem
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/wrapped-assets/redeem
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "from_currency": "CBETH",
+    "to_currency": "ETH",
+    "amount": "1.0"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Initiates the creation/processing of a redeem
+
+  POST /wrapped-assets/redeem (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

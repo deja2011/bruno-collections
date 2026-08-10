@@ -1,0 +1,30 @@
+meta {
+  name: Query Index Price Constituents
+  type: http
+  seq: 19
+}
+
+get {
+  url: {{baseUrl}}/dapi/v1/constituents?symbol=BTCUSD
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSD
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Query Index Price Constituents
+
+  GET /dapi/v1/constituents (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSD) — Symbol
+
+  Reference: https://developers.binance.com/docs/derivatives/coin-margined-futures/market-data
+}

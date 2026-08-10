@@ -1,0 +1,27 @@
+meta {
+  name: Get a single account by id
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/accounts/:account_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  account_id: ACCOUNT_ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get a single account by id
+
+  GET /accounts/{account_id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

@@ -1,0 +1,37 @@
+meta {
+  name: Add addresses
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/address-book
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "addresses": [
+      {
+        "label": "my wallet",
+        "to": {
+          "address": "1JmYrFBLMSCLBwoL87gdQ5Qc9MLvb2egKk"
+        },
+        "currency": "BTC"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Add addresses
+
+  POST /address-book (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

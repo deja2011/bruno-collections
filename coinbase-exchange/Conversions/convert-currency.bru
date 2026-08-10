@@ -1,0 +1,31 @@
+meta {
+  name: Convert currency
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/conversions
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "from": "USD",
+    "to": "USDC",
+    "amount": "100.00"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Convert currency
+
+  POST /conversions (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

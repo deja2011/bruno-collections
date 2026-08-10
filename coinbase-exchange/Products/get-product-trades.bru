@@ -1,0 +1,33 @@
+meta {
+  name: Get product trades
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/products/:product_id/trades?limit=1000
+  body: none
+  auth: inherit
+}
+
+params:query {
+  limit: 1000
+  ~before: 
+  ~after: 
+}
+
+params:path {
+  product_id: BTC-USD
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get product trades
+
+  GET /products/{product_id}/trades (public — no authentication required)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

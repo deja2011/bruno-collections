@@ -1,0 +1,27 @@
+meta {
+  name: List interest charges
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/loans/interest/:loan_id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  loan_id: LOAN_ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  List interest charges
+
+  GET /loans/interest/{loan_id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

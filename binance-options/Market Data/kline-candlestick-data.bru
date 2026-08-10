@@ -1,0 +1,38 @@
+meta {
+  name: Kline/Candlestick Data
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/eapi/v1/klines?symbol=BTC-260925-120000-C&interval=1m
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTC-260925-120000-C
+  interval: 1m
+  ~startTime: 1623319461670
+  ~endTime: 1641782889000
+  ~limit: 20
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Kline/Candlestick Data
+
+  GET /eapi/v1/klines (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTC-260925-120000-C) — Option trading pair
+  - interval (example: 1m) — Time interval
+  - startTime (optional, example: 1623319461670) — Start Time, e.g 1593511200000
+  - endTime (optional, example: 1641782889000) — End Time, e.g 1593512200000
+  - limit (optional, example: 20) — Number of result sets returned
+
+  Reference: https://developers.binance.com/docs/derivatives/option/market-data
+}

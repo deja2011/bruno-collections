@@ -1,0 +1,27 @@
+meta {
+  name: List loans
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/loans
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~ids: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  List loans
+
+  GET /loans (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

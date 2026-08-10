@@ -1,0 +1,28 @@
+meta {
+  name: Exchange Information
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/exchangeInfo?symbol=SPCXUSDT
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: SPCXUSDT
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+docs {
+  Exchange Information
+  
+  GET /fapi/v1/exchangeInfo (public — no API key required)
+  
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

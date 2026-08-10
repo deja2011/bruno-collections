@@ -1,0 +1,40 @@
+meta {
+  name: Basis
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/futures/data/basis?pair=BTCUSDT&contractType=PERPETUAL&period=5m
+  body: none
+  auth: inherit
+}
+
+params:query {
+  pair: BTCUSDT
+  contractType: PERPETUAL
+  period: 5m
+  ~limit: 30
+  ~startTime: 1623319461670
+  ~endTime: 1641782889000
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Basis
+
+  GET /futures/data/basis (public — no API key required)
+
+  Query parameters:
+  - pair (example: BTCUSDT)
+  - contractType (example: PERPETUAL)
+  - period (example: 5m)
+  - limit (optional, example: 30)
+  - startTime (optional, example: 1623319461670)
+  - endTime (optional, example: 1641782889000)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

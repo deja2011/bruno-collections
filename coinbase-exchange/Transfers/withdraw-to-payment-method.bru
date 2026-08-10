@@ -1,0 +1,31 @@
+meta {
+  name: Withdraw to payment method
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/withdrawals/payment-method
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "amount": "10.00",
+    "payment_method_id": "",
+    "currency": "USD"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Withdraw to payment method
+
+  POST /withdrawals/payment-method (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

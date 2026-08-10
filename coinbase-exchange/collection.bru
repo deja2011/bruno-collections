@@ -1,0 +1,83 @@
+auth {
+  mode: none
+}
+
+script:pre-request {
+  // ---------------------------------------------------------------------------
+  // Coinbase Exchange REST API request signing.
+  //
+  // Every private endpoint must be signed. This collection-level script builds
+  // the CB-ACCESS-* headers automatically for every request, using the API key
+  // credentials stored in the active environment (apiKey / apiSecret /
+  // apiPassphrase). Public endpoints (Products, Currencies, some Wrapped assets)
+  // work with no credentials set — signing is skipped when they are blank.
+  //
+  // Signature scheme (see https://docs.cdp.coinbase.com/exchange/rest-api):
+  //   prehash   = timestamp + method + requestPath + body
+  //   signature = base64( HMAC-SHA256( base64-decode(secret), prehash ) )
+  // ---------------------------------------------------------------------------
+  const CryptoJS = require('crypto-js');
+
+  const apiKey = bru.getEnvVar('apiKey');
+  const apiSecret = bru.getEnvVar('apiSecret');
+  const apiPassphrase = bru.getEnvVar('apiPassphrase');
+
+  if (apiKey && apiSecret && apiPassphrase) {
+    const timestamp = Math.floor(Date.now() / 1000).toString();
+    const method = req.getMethod().toUpperCase();
+
+    // requestPath is the path (plus query string) with the origin stripped off.
+    let requestPath;
+    try {
+      const u = new URL(req.getUrl());
+      requestPath = u.pathname + (u.search || '');
+    } catch (e) {
+      requestPath = req.getUrl();
+    }
+
+    // Body must be the exact JSON string that is sent on the wire. For GET /
+    // DELETE and empty bodies it must be omitted entirely.
+    let body = '';
+    const raw = req.getBody();
+    if (raw !== undefined && raw !== null && raw !== '') {
+      body = (typeof raw === 'string') ? raw : JSON.stringify(raw);
+      if (body === '{}' || body === 'null') body = '';
+    }
+
+    const prehash = timestamp + method + requestPath + body;
+    const key = CryptoJS.enc.Base64.parse(apiSecret);
+    const signature = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(prehash, key));
+
+    req.setHeader('CB-ACCESS-KEY', apiKey);
+    req.setHeader('CB-ACCESS-SIGN', signature);
+    req.setHeader('CB-ACCESS-TIMESTAMP', timestamp);
+    req.setHeader('CB-ACCESS-PASSPHRASE', apiPassphrase);
+    req.setHeader('Content-Type', 'application/json');
+  }
+}
+
+docs {
+  # Coinbase Exchange REST API
+
+  A Bruno collection covering the full Coinbase Exchange (Institutional) REST API,
+  generated from the official OpenAPI specification.
+
+  ## Setup
+
+  1. Select an environment: **production** or **sandbox**.
+  2. For private (authenticated) endpoints, set your API credentials as
+     environment variables: `apiKey`, `apiSecret`, `apiPassphrase`.
+     Generate keys at https://exchange.coinbase.com/profile/api
+     (or the sandbox equivalent).
+  3. Public endpoints (most of **Products**, **Currencies**, and some
+     **Wrapped assets**) need no credentials.
+
+  Request signing is handled automatically by the collection pre-request script —
+  you never have to compute the `CB-ACCESS-*` headers yourself.
+
+  Base URLs:
+  - production: https://api.exchange.coinbase.com
+  - sandbox:    https://api-public.sandbox.exchange.coinbase.com
+
+  Docs: https://docs.cdp.coinbase.com/exchange/rest-api
+}

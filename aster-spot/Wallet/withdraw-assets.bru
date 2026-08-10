@@ -1,0 +1,34 @@
+meta {
+  name: Withdraw assets
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/bapi/futures/v1/public/future/aster/withdraw/assets?chainIds=56&networks=EVM&accountType=spot
+  body: none
+  auth: inherit
+}
+
+params:query {
+  chainIds: 56
+  networks: EVM
+  accountType: spot
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Withdraw assets
+
+  GET /bapi/futures/v1/public/future/aster/withdraw/assets (public — no credentials required)
+
+  Lists the assets that can be withdrawn, per chain and network.
+
+  Query parameters:
+  - chainIds (example: 56 — BNB Smart Chain)
+  - networks (example: EVM)
+  - accountType (example: spot)
+}

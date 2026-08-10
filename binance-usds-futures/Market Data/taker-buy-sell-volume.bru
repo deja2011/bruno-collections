@@ -1,0 +1,38 @@
+meta {
+  name: Taker Buy/Sell Volume
+  type: http
+  seq: 30
+}
+
+get {
+  url: {{baseUrl}}/futures/data/takerlongshortRatio?symbol=BTCUSDT&period=5m
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSDT
+  period: 5m
+  ~limit: 50
+  ~startTime: 1623319461670
+  ~endTime: 1641782889000
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Taker Buy/Sell Volume
+
+  GET /futures/data/takerlongshortRatio (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSDT)
+  - period (example: 5m)
+  - limit (optional, example: 50)
+  - startTime (optional, example: 1623319461670)
+  - endTime (optional, example: 1641782889000)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

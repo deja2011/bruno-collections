@@ -1,0 +1,32 @@
+meta {
+  name: Cancel an order
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{baseUrl}}/orders/:order_id
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~profile_id: 
+  ~product_id: BTC-USD
+}
+
+params:path {
+  order_id: ORDER_ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Cancel an order
+
+  DELETE /orders/{order_id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

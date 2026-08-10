@@ -1,0 +1,27 @@
+meta {
+  name: Delete existing travel rule entry
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{baseUrl}}/travel-rules/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Delete existing travel rule entry
+
+  DELETE /travel-rules/{id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

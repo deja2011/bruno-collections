@@ -1,0 +1,30 @@
+meta {
+  name: Get all travel rule information
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/travel-rules?limit=1000
+  body: none
+  auth: inherit
+}
+
+params:query {
+  limit: 1000
+  ~before: 
+  ~after: 
+  ~address: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all travel rule information
+
+  GET /travel-rules (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

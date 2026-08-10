@@ -1,0 +1,36 @@
+meta {
+  name: Estimate withdraw fee
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/bapi/futures/v1/public/future/aster/estimate-withdraw-fee?chainId=56&network=EVM&currency=USDT&accountType=spot
+  body: none
+  auth: inherit
+}
+
+params:query {
+  chainId: 56
+  network: EVM
+  currency: USDT
+  accountType: spot
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Estimate withdraw fee
+
+  GET /bapi/futures/v1/public/future/aster/estimate-withdraw-fee (public — no credentials required)
+
+  Estimates the fee charged for withdrawing a given currency over a given network.
+
+  Query parameters:
+  - chainId (example: 56 — BNB Smart Chain; singular here, unlike the assets endpoints)
+  - network (example: EVM; singular here, unlike the assets endpoints)
+  - currency (example: USDT)
+  - accountType (example: spot)
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Test Connectivity
+  type: http
+  seq: 31
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/ping
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Test Connectivity
+
+  GET /fapi/v1/ping (public — no API key required)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

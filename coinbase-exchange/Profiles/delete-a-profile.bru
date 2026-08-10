@@ -1,0 +1,33 @@
+meta {
+  name: Delete a profile
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{baseUrl}}/profiles/:profile_id/deactivate
+  body: json
+  auth: inherit
+}
+
+params:path {
+  profile_id: PROFILE_ID
+}
+
+body:json {
+  {
+    "to": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Delete a profile
+
+  PUT /profiles/{profile_id}/deactivate (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

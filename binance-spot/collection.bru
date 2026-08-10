@@ -1,0 +1,44 @@
+auth {
+  mode: none
+}
+
+headers {
+  Accept: application/json
+}
+
+script:pre-request {
+  // Binance "MARKET_DATA" endpoints (e.g. old trades lookup) require the
+  // X-MBX-APIKEY header but no request signature. The header is ignored by
+  // fully public endpoints, so when an apiKey is configured in the active
+  // environment it is simply sent on every request.
+  const apiKey = bru.getEnvVar('apiKey');
+  if (apiKey) {
+    req.setHeader('X-MBX-APIKEY', apiKey);
+  }
+}
+
+docs {
+  # Binance Spot REST API — public endpoints
+
+  A Bruno collection covering the public (unauthenticated) REST endpoints in
+  **General**, **Market**, generated from the official Binance Postman collection
+  (binance/binance-api-postman).
+
+  ## Setup
+
+  1. Select an environment (see environments/).
+  2. No credentials are needed for public endpoints. Endpoints marked
+     MARKET_DATA additionally require an API key: set the `apiKey` secret
+     environment variable and the collection pre-request script sends it as
+     the X-MBX-APIKEY header automatically. No endpoint here needs signing.
+
+  Base URLs:
+  - production: https://api.binance.com
+  - testnet: https://testnet.binance.vision
+  - demo: https://demo-api.binance.com
+
+  References:
+  - https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-endpoints
+  - https://developers.binance.com/docs/binance-spot-api-docs/rest-api/market-data-endpoints
+  Changelog: https://developers.binance.com/en/docs/products/spot/CHANGELOG
+}

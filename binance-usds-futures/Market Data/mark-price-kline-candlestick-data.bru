@@ -1,0 +1,38 @@
+meta {
+  name: Mark Price Kline/Candlestick Data
+  type: http
+  seq: 15
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/markPriceKlines?symbol=BTCUSDT&interval=1m
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BTCUSDT
+  interval: 1m
+  ~startTime: 1623319461670
+  ~endTime: 1641782889000
+  ~limit: 50
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Mark Price Kline/Candlestick Data
+
+  GET /fapi/v1/markPriceKlines (public — no API key required)
+
+  Query parameters:
+  - symbol (example: BTCUSDT) — After CM migration, accepts both UM and CM symbols.
+  - interval (example: 1m)
+  - startTime (optional, example: 1623319461670) — Start time
+  - endTime (optional, example: 1641782889000) — End time
+  - limit (optional, example: 50)
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

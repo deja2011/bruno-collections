@@ -1,0 +1,27 @@
+meta {
+  name: Get user exchange limits
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/users/:user_id/exchange-limits
+  body: none
+  auth: inherit
+}
+
+params:path {
+  user_id: self
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get user exchange limits
+
+  GET /users/{user_id}/exchange-limits (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

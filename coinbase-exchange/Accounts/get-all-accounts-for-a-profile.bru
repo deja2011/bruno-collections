@@ -1,0 +1,23 @@
+meta {
+  name: Get all accounts for a profile
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/accounts
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all accounts for a profile
+
+  GET /accounts (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

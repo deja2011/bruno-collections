@@ -1,0 +1,35 @@
+meta {
+  name: Submit travel information for a transfer
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/transfers/:transfer_id/travel-rules
+  body: json
+  auth: inherit
+}
+
+params:path {
+  transfer_id: TRANSFER_ID
+}
+
+body:json {
+  {
+    "originator_name": "Jane Doe",
+    "originator_country": "US",
+    "is_self_certified": true
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Submit travel information for a transfer
+
+  POST /transfers/{transfer_id}/travel-rules (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

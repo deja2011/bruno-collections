@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "binance-usds-futures",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,31 @@
+meta {
+  name: Get all reports
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/reports?limit=100
+  body: none
+  auth: inherit
+}
+
+params:query {
+  limit: 100
+  ~profile_id: 
+  ~after: 
+  ~type: 
+  ~ignore_expired: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all reports
+
+  GET /reports (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

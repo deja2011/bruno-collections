@@ -1,0 +1,33 @@
+meta {
+  name: Get a single account's holds
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/accounts/:account_id/holds?limit=100
+  body: none
+  auth: inherit
+}
+
+params:query {
+  limit: 100
+  ~before: 
+  ~after: 
+}
+
+params:path {
+  account_id: ACCOUNT_ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get a single account's holds
+
+  GET /accounts/{account_id}/holds (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

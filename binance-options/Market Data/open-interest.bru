@@ -1,0 +1,32 @@
+meta {
+  name: Open Interest
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/eapi/v1/openInterest?underlyingAsset=BTC&expiration=260925
+  body: none
+  auth: inherit
+}
+
+params:query {
+  underlyingAsset: BTC
+  expiration: 260925
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Open Interest
+
+  GET /eapi/v1/openInterest (public — no API key required)
+
+  Query parameters:
+  - underlyingAsset (example: BTC) — Underlying asset.
+  - expiration (example: 260925) — expiration date
+
+  Reference: https://developers.binance.com/docs/derivatives/option/market-data
+}

@@ -1,0 +1,37 @@
+meta {
+  name: Get all orders
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/orders?sortedBy=created_at&sorting=desc&limit=100&status=open&market_type=spot
+  body: none
+  auth: inherit
+}
+
+params:query {
+  sortedBy: created_at
+  sorting: desc
+  limit: 100
+  status: open
+  market_type: spot
+  ~profile_id: 
+  ~product_id: BTC-USD
+  ~start_date: 
+  ~end_date: 
+  ~before: 
+  ~after: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all orders
+
+  GET /orders (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

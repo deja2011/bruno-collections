@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "aster-spot",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

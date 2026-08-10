@@ -1,0 +1,30 @@
+meta {
+  name: Multi-Assets Mode Asset Index
+  type: http
+  seq: 16
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/assetIndex
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~symbol: ADAUSD
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Multi-Assets Mode Asset Index
+
+  GET /fapi/v1/assetIndex (public — no API key required)
+
+  Query parameters:
+  - symbol (optional, example: ADAUSD) — Asset pair
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

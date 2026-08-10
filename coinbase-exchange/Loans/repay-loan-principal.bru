@@ -1,0 +1,33 @@
+meta {
+  name: Repay loan principal
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/loans/repay-principal
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "loan_id": "",
+    "idem": "",
+    "from_profile_id": "",
+    "currency": "USD",
+    "native_amount": "100"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Repay loan principal
+
+  POST /loans/repay-principal (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

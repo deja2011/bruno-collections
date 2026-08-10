@@ -1,0 +1,27 @@
+meta {
+  name: Get lending overview XM
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{baseUrl}}/loans/lending-overview-xm
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~user_id: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get lending overview XM
+
+  GET /loans/lending-overview-xm (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

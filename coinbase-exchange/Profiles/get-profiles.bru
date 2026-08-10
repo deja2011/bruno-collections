@@ -1,0 +1,27 @@
+meta {
+  name: Get profiles
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/profiles
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~active: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get profiles
+
+  GET /profiles (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

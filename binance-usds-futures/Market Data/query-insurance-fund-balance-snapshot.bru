@@ -1,0 +1,30 @@
+meta {
+  name: Query Insurance Fund Balance Snapshot
+  type: http
+  seq: 24
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/insuranceBalance
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~symbol: BNBUSDT
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Query Insurance Fund Balance Snapshot
+
+  GET /fapi/v1/insuranceBalance (public — no API key required)
+
+  Query parameters:
+  - symbol (optional, example: BNBUSDT) — Symbol
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

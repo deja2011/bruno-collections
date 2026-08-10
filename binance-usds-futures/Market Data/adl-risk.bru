@@ -1,0 +1,30 @@
+meta {
+  name: ADL Risk
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/fapi/v1/symbolAdlRisk
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~symbol: BTCUSDT
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  ADL Risk
+
+  GET /fapi/v1/symbolAdlRisk (public — no API key required)
+
+  Query parameters:
+  - symbol (optional, example: BTCUSDT) — Symbol
+
+  Reference: https://developers.binance.com/docs/derivatives/usds-margined-futures/market-data
+}

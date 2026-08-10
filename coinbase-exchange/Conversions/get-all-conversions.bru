@@ -1,0 +1,30 @@
+meta {
+  name: Get all conversions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/conversions
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~profile_id: 
+  ~before: 
+  ~after: 
+  ~limit: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get all conversions
+
+  GET /conversions (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

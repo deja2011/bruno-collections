@@ -1,0 +1,23 @@
+meta {
+  name: Check server time
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/v3/time
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Check server time
+
+  GET /api/v3/time (public — no API key required)
+
+  Reference: https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-endpoints
+}

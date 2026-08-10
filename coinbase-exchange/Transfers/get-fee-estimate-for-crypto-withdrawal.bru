@@ -1,0 +1,29 @@
+meta {
+  name: Get fee estimate for crypto withdrawal
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/withdrawals/fee-estimate
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~currency: BTC
+  ~crypto_address: 
+  ~network: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Get fee estimate for crypto withdrawal
+
+  GET /withdrawals/fee-estimate (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

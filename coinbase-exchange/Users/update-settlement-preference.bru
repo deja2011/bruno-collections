@@ -1,0 +1,33 @@
+meta {
+  name: Update settlement preference
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/users/:user_id/settlement-preferences
+  body: json
+  auth: inherit
+}
+
+params:path {
+  user_id: self
+}
+
+body:json {
+  {
+    "settlement_preference": "USDC"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Update settlement preference
+
+  POST /users/{user_id}/settlement-preferences (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

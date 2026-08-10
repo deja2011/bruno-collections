@@ -1,0 +1,23 @@
+meta {
+  name: Test Connectivity
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{baseUrl}}/eapi/v1/ping
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Test Connectivity
+
+  GET /eapi/v1/ping (public — no API key required)
+
+  Reference: https://developers.binance.com/docs/derivatives/option/market-data
+}

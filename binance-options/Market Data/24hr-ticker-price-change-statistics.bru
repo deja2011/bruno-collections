@@ -1,0 +1,30 @@
+meta {
+  name: 24hr Ticker Price Change Statistics
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/eapi/v1/ticker
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~symbol: BTC-260925-120000-C
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  24hr Ticker Price Change Statistics
+
+  GET /eapi/v1/ticker (public — no API key required)
+
+  Query parameters:
+  - symbol (optional, example: BTC-260925-120000-C) — Option trading pair
+
+  Reference: https://developers.binance.com/docs/derivatives/option/market-data
+}

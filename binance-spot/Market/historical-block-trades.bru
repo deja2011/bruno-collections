@@ -1,0 +1,34 @@
+meta {
+  name: Historical Block Trades (MARKET_DATA)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/v3/historicalBlockTrades?symbol=BNBBTC&fromId=582
+  body: none
+  auth: inherit
+}
+
+params:query {
+  symbol: BNBBTC
+  fromId: 582
+  ~limit: 500
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Historical Block Trades (MARKET_DATA)
+
+  GET /api/v3/historicalBlockTrades (security type MARKET_DATA — requires the X-MBX-APIKEY header (set the apiKey environment variable); no signature)
+
+  Query parameters:
+  - symbol (example: BNBBTC)
+  - fromId (example: 582) — Block trade ID to fetch from
+  - limit (optional, example: 500) — Default: 500; Maximum: 1000
+
+  Reference: https://developers.binance.com/docs/binance-spot-api-docs/rest-api/market-data-endpoints
+}

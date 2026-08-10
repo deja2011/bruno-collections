@@ -1,0 +1,27 @@
+meta {
+  name: Delete address
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/address-book/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: ID
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Delete address
+
+  DELETE /address-book/{id} (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

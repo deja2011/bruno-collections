@@ -1,0 +1,31 @@
+meta {
+  name: Withdraw to Coinbase account
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/withdrawals/coinbase-account
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "coinbase_account_id": "",
+    "amount": "10.00",
+    "currency": "BTC"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Withdraw to Coinbase account
+
+  POST /withdrawals/coinbase-account (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}

@@ -1,0 +1,29 @@
+meta {
+  name: Create a profile
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/profiles
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "my-new-profile"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  Create a profile
+
+  POST /profiles (requires API key authentication)
+
+  Reference: https://docs.cdp.coinbase.com/exchange/rest-api
+}
